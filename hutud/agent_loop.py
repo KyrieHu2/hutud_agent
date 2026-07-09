@@ -97,9 +97,8 @@ while True:
                     # 执行工具前判断权限
                     if not check_permission(call):
                         tool_output = "Permission denied."
-                        continue
-
-                    tool_output = call_fun.invoke(tool_args)
+                    else:
+                        tool_output = call_fun.invoke(tool_args)
                 except Exception as e:
                     tool_output = f"Error while running tool {tool_name}: {e}"
 
